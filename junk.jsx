@@ -1104,3 +1104,33 @@ const Dasboard = () => {
 };
 
 export default Dasboard;
+    {
+      /* <div className="w-[442px] h-[52px] p-10 left-[18px] top-[400px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
+          <div className="w-6 h-6 relative">
+            <span>
+              <FaHome size={25} />
+            </span>
+          </div>
+          <div className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+            Dashboard
+          </div>
+        </div> */
+    }
+    {
+      /* <div className="w-[442px] h-[52px] p-10 left-[18px] top-[536px] absolute bg-neutral-50 rounded-[10px] justify-start items-center gap-5 inline-flex">
+          <button className="cursor-pointer">
+            <div className="w-6 pr-1.5 py-0.5 justify-start items-center flex">
+              <div className="w-5 h-5 relative flex-col justify-start items-start flex">
+                <div className="w-[15.17px] h-[15.84px] relative text-emerald-400">
+                  <span>
+                    <CiSettings size={25} />
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+              Settings
+            </div>
+          </button>
+        </div> */
+    }

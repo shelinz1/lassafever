@@ -344,6 +344,11 @@
 
 // export default Dasboard;
 
+import { FaHome } from "react-icons/fa";
+import { CiSettings } from "react-icons/ci";
+import { MdNotificationsActive } from "react-icons/md";
+import Footer from "../components/Footer";
+
 const Dasboard = () => {
   return (
     <div className="w-[1728px] h-[2500px] relative bg-neutral-50">
@@ -351,27 +356,37 @@ const Dasboard = () => {
         <div className="left-[78px] top-[50px] absolute text-zinc-600 text-[56px] font-bold font-['Inter']">
           LOGO
         </div>
-        <div className="w-[442px] h-[52px] p-10 left-[18px] top-[400px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
-          <div className="w-6 h-6 relative" />
-          <div className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-            Dashboard
-          </div>
+
+        <div>
+          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[400px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
+            <span className="w-6 h-6 relative text-white">
+              <FaHome size={25} />
+            </span>
+
+            <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+              Dashboard
+            </span>
+          </button>
         </div>
-        <div className="w-[442px] h-[52px] p-10 left-[18px] top-[536px] absolute bg-neutral-50 rounded-[10px] justify-start items-center gap-5 inline-flex">
-          <div className="w-6 pr-1.5 py-0.5 justify-start items-center flex">
-            <div className="w-5 h-5 relative flex-col justify-start items-start flex">
-              <div className="w-[15.17px] h-[15.84px] relative"></div>
-            </div>
-          </div>
-          <div className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-            Settings
-          </div>
+
+        <div>
+          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[536px] absolute bg-neutral-200 rounded-[10px] justify-start items-center gap-5 inline-flex">
+            <span className="w-6 h-6 relative text-emerald-400">
+              <CiSettings size={25} />
+            </span>
+
+            <span className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+              Settings
+            </span>
+          </button>
         </div>
-        <div className="w-[442px] h-[52px] p-10 left-[18px] top-[650px] absolute bg-neutral-50 rounded-[10px] justify-center items-center gap-5 inline-flex">
-          <div className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+
+        <button className="w-[442px] h-[52px] p-10 left-[18px] top-[650px] absolute bg-neutral-200 rounded-[10px] justify-center items-center gap-5 inline-flex">
+          <span className="text-emerald-400 text-2xl font-bold font-['Inter'] leading-[13px] tracking-tight">
             Log out
-          </div>
-        </div>
+          </span>
+        </button>
+
         <div className="w-[442px] h-[140px] left-[18px] top-[200px] absolute bg-emerald-400 rounded-[20px] justify-center items-center gap-5 inline-flex">
           <div className="justify-start items-center gap-5 flex">
             <div className="flex-col justify-center items-start gap-5 inline-flex">
@@ -384,27 +399,13 @@ const Dasboard = () => {
             </div>
           </div>
           <div />
-          <div className="w-[50px] h-[50px] relative" />
+          <span className="w-[50px] h-[50px] relative text-white">
+            <MdNotificationsActive size={50} />
+          </span>
         </div>
       </div>
 
-      <div className="pl-52 pr-[212px] py-[125px] left-[5px] top-[2080px] absolute bg-emerald-400 bg-opacity-30 justify-start items-center inline-flex">
-        <div className="self-stretch justify-start items-end gap-[346px] inline-flex">
-          <div className="text-zinc-600 text-2xl font-medium font-['Inter'] leading-tight tracking-tight">
-            Copyright Ⓒ 2023 Coppy name
-            <br /> Limited - RC 883275OPay is a mobile
-            <br /> Satistic platform operated by Name
-            <br />
-            Digital Services Limited. <br />
-            Company is licensed by World Health
-            <br />
-            Organization (WHO) and all details are <br />
-            insured by World Health Organization <br />
-            (WHO).
-          </div>
-          <div className="w-[516px] h-[100px] bg-white justify-start items-center flex" />
-        </div>
-      </div>
+      <Footer />
 
       <div className="left-[604px] top-[205px] absolute flex-col justify-start items-start gap-[53px] inline-flex">
         <div className="text-emerald-400 text-[40px] font-semibold font-['Inter'] leading-snug tracking-tight">
