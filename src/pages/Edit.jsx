@@ -1,3 +1,10 @@
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+
+import { FaHome } from "react-icons/fa";
+import { CiSettings } from "react-icons/ci";
+import { MdNotificationsActive } from "react-icons/md";
+
 const EditProfile = () => {
   return (
     <div className="w-[1728px] h-[1872px] relative bg-neutral-50">
@@ -5,27 +12,36 @@ const EditProfile = () => {
         <div className="left-[78px] top-[96px] absolute text-zinc-600 text-[56px] font-bold font-['Inter']">
           LOGO
         </div>
-        <div className="w-[442px] h-[52px] p-10 left-[18px] top-[556px] absolute bg-neutral-50 rounded-[10px] justify-start items-center gap-5 inline-flex">
-          <div className="w-6 h-6 relative" />
-          <div className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-            Dashboard
-          </div>
-        </div>
-        <div className="w-[442px] h-[52px] p-10 left-[18px] top-[636px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
-          <div className="w-6 pr-1.5 py-0.5 justify-start items-center flex">
-            <div className="w-5 h-5 relative flex-col justify-start items-start flex">
-              <div className="w-[15.17px] h-[15.84px] relative"></div>
-            </div>
-          </div>
-          <div className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-            Settings
-          </div>
-        </div>
-        <div className="w-[442px] h-[52px] p-10 left-[18px] top-[1080px] absolute bg-neutral-50 rounded-[10px] justify-center items-center gap-5 inline-flex">
-          <div className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+
+        <Link to={"/"}>
+          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[450px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
+            <span className="w-6 h-6 relative text-white">
+              <FaHome size={25} />
+            </span>
+
+            <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+              Dashboard
+            </span>
+          </button>
+        </Link>
+
+        <Link to={"/settings"}>
+          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[566px] absolute bg-neutral-200 rounded-[10px] justify-start items-center gap-5 inline-flex">
+            <span className="w-6 h-6 relative text-emerald-400">
+              <CiSettings size={25} />
+            </span>
+
+            <span className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+              Settings
+            </span>
+          </button>
+        </Link>
+
+        <button className="w-[442px] h-[52px] p-10 left-[18px] top-[700px] absolute bg-neutral-200 rounded-[10px] justify-center items-center gap-5 inline-flex">
+          <span className="text-emerald-400 text-2xl font-bold font-['Inter'] leading-[13px] tracking-tight">
             Log out
-          </div>
-        </div>
+          </span>
+        </button>
         <div className="w-[442px] h-[140px] left-[18px] top-[290px] absolute bg-emerald-400 rounded-[20px] justify-center items-center gap-5 inline-flex">
           <div className="justify-start items-center gap-5 flex">
             <img
@@ -89,24 +105,9 @@ const EditProfile = () => {
           </div>
         </div>
       </div>
-      <div className="w-[1727px] h-[550px] left-0 top-[1322px] absolute bg-emerald-400 bg-opacity-30">
-        <div className="w-[843px] p-2.5 left-[21px] top-[115px] absolute" />
-        <div className="left-[220px] top-[125px] absolute justify-start items-end gap-[346px] inline-flex">
-          <div className="text-zinc-600 text-2xl font-medium font-['Inter'] leading-tight tracking-tight">
-            Copyright Ⓒ 2023 Coppy name
-            <br /> Limited - RC 883275OPay is a mobile
-            <br /> Satistic platform operated by Name
-            <br />
-            Digital Services Limited. <br />
-            Company is licensed by World Health
-            <br />
-            Organization (WHO) and all details are <br />
-            insured by World Health Organization <br />
-            (WHO).
-          </div>
-          <div className="w-[516px] h-[100px] bg-white justify-start items-center flex" />
-        </div>
-      </div>
+
+      <Footer />
+
       <div className="p-2.5 left-[598px] top-[392px] absolute justify-center items-center gap-2.5 inline-flex">
         <div className="text-zinc-600 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
           Edit Profile{" "}

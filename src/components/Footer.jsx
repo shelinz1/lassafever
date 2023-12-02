@@ -64,7 +64,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <FaYoutube size={50} className="cursor-pointer" />
+              <FaLinkedin size={50} className="cursor-pointer" />
             </a>
           </span>
         </div>
