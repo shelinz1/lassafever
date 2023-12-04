@@ -22,19 +22,24 @@ export default function Test() {
 
   const authLogin = async () => {
     try {
+      setLoading(true);
       const response = await axios.put(
         "https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1/otp",
         {
-          otpCodepin: pin,
+          otpCode: pin,
         }
       );
-      console.log("Login successful:", response.data);
-
+      // console.log("Login successful:", response.data);
+      setLoading(false);
       // Perform actions after successful login (redirect, etc.)
-      toast.success(response.data.message, ToastObjects);
-      navigate("/");
+      toast.success(`${response.data.message}`, ToastObjects);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (error) {
-      console.log("Login error:", error);
+      setLoading(false);
+      // console.log("Login error:", error);
+      toast.error(`${error.response.data.message}`, ToastObjects);
       // Handle login failure (display error, reset PIN input, etc.)
     }
   };
@@ -83,12 +88,25 @@ export default function Test() {
       </div>
 
       <div className="mt-12 px-2.5 py-5 bg-emerald-400 rounded-[10px]">
-        <button
-          className="w-full rounded-md text-white text-2xl font-medium font-inter"
-          onClick={authLogin}
-        >
-          Sign Up
-        </button>
+        {loading ? (
+          <>
+            <button
+              disabled
+              className="w-[779px] h-16 px-2.5 py-5 bg-emerald-400 rounded-[10px] justify-center items-center gap-2.5 inline-flex mt-4"
+            >
+              <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+                Loading...
+              </span>
+            </button>
+          </>
+        ) : (
+          <button
+            className="w-full rounded-md text-white text-2xl font-medium font-inter"
+            onClick={authLogin}
+          >
+            Sign Up
+          </button>
+        )}
       </div>
     </AuthLayout>
   );

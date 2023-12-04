@@ -312,14 +312,31 @@
 
 // export default Dasboard;
 
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
 import { MdNotificationsActive } from "react-icons/md";
 import Footer from "../components/Footer";
 
-import { Link } from "react-router-dom";
+export default function Dashboard() {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-export default function Dashboard({ children }) {
+  useEffect(() => {
+    // Retrieve user details from local storage when the component mounts
+    const storedUserDetails = localStorage.getItem("userDetails");
+
+    if (storedUserDetails) {
+      // If user details are found in local storage, parse and set them in state
+      setUser(JSON.parse(storedUserDetails));
+    }
+
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
   return (
     <section className="w-screen h-screen flex gap-10 items-center">
       <div className="max-w-[320px] w-full h-full">

@@ -58,15 +58,19 @@ const Register = () => {
           }
         );
         setLoading(false);
-        console.log("Registration successful:", response);
+
+        // Save user details to local storage after successful registration
+        localStorage.setItem("userDetails", JSON.stringify(response.data.data));
+
+        // console.log("Registration successful:", response.data.data);
         toast.success(`${response.data.message}`, ToastObjects);
-        // navigate("/userauth");
+
         setTimeout(() => {
           navigate("/userauth");
         }, 2000);
       } catch (error) {
         setLoading(false);
-        console.log(error);
+        // console.log(error);
         toast.error(`${error.response.data.message}`, ToastObjects);
         // console.error("Registration error:", error.message);
       }
