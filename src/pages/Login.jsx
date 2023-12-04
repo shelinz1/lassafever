@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaEye } from "react-icons/fa";
+import AuthLayout from "../layouts/AuthLayout";
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -22,12 +23,9 @@ const Login = () => {
   };
 
   return (
-    <div className="w-[1000px] h-[1117px] justify-start items-center gap-[133px] inline-flex">
-      <div className="w-[609px] h-[1117px] flex-col justify-center items-center inline-flex">
-        <div className="w-[609px] h-[1117px] bg-emerald-400" />
-      </div>
-      <div className="w-[783px] h-[873px] relative">
-        <div className="left-0 top-0 absolute text-emerald-400 text-4xl font-bold font-['Inter'] leading-snug tracking-tight">
+    <AuthLayout>
+      <div className="top-[-200px] relative">
+        <div className=" absolute text-emerald-400 text-4xl font-bold font-['Inter'] leading-snug tracking-tight">
           Log In
         </div>
         <form onSubmit={handleSubmit}>
@@ -103,7 +101,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </div>
+    </AuthLayout>
   );
 };
 
