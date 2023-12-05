@@ -92,7 +92,7 @@ export default function Test() {
           <>
             <button
               disabled
-              className="w-[779px] h-16 px-2.5 py-5 bg-emerald-400 rounded-[10px] justify-center items-center gap-2.5 inline-flex mt-4"
+              className="w-full rounded-md text-white text-2xl font-medium font-inter"
             >
               <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
                 Loading...

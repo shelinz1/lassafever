@@ -314,10 +314,8 @@
 
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import { CiSettings } from "react-icons/ci";
-import { MdNotificationsActive } from "react-icons/md";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
@@ -330,69 +328,14 @@ export default function Dashboard() {
     if (storedUserDetails) {
       // If user details are found in local storage, parse and set them in state
       setUser(JSON.parse(storedUserDetails));
-    }
-
-    if (!user) {
+    } else {
       navigate("/login");
     }
-  }, [user, navigate]);
+  }, []);
 
   return (
     <section className="w-screen h-screen flex gap-10 items-center">
-      <div className="max-w-[320px] w-full h-full">
-        <div className=" left-0 top-auto absolute bg-white shadow ">
-          <div className="left-[78px] top-[50px] absolute text-zinc-600 text-[56px] font-bold font-['Inter']">
-            LOGO
-          </div>
-
-          <Link to={"/"}>
-            <button className="w-[442px] h-[52px] p-10 left-[18px] top-[400px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
-              <span className="w-6 h-6 relative text-white">
-                <FaHome size={25} />
-              </span>
-
-              <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-                Dashboard
-              </span>
-            </button>
-          </Link>
-
-          <Link to={"/settings"}>
-            <button className="w-[442px] h-[52px] p-10 left-[18px] top-[536px] absolute bg-neutral-200 rounded-[10px] justify-start items-center gap-5 inline-flex">
-              <span className="w-6 h-6 relative text-emerald-400">
-                <CiSettings size={25} />
-              </span>
-
-              <span className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-                Settings
-              </span>
-            </button>
-          </Link>
-
-          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[650px] absolute bg-neutral-200 rounded-[10px] justify-center items-center gap-5 inline-flex">
-            <span className="text-emerald-400 text-2xl font-bold font-['Inter'] leading-[13px] tracking-tight">
-              Log out
-            </span>
-          </button>
-
-          <div className="w-[442px] h-[140px] left-[18px] top-[200px] absolute bg-emerald-400 rounded-[20px] justify-center items-center gap-5 inline-flex">
-            <div className="justify-start items-center gap-5 flex">
-              <div className="flex-col justify-center items-start gap-5 inline-flex">
-                <div className="text-neutral-100 text-4xl font-medium font-['Inter'] leading-snug tracking-tight">
-                  Name Name
-                </div>
-                <div className="text-neutral-100 text-xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-                  namenamegmail.com
-                </div>
-              </div>
-            </div>
-            <div />
-            <span className="w-[50px] h-[50px] relative text-white">
-              <MdNotificationsActive size={50} />
-            </span>
-          </div>
-        </div>
-      </div>
+      <Sidebar />
 
       <div className="w-full">
         <div className="max-w-[780px] w-full mx-auto">

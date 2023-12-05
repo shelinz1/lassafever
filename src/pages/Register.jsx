@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -23,6 +23,7 @@ const Register = () => {
     password: "",
     password2: "",
   });
+
   // const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [toggle, setToggle] = useState(false);
@@ -33,8 +34,7 @@ const Register = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const { firstName, lastName, email, phoneNumber, password, password2 } =
-    formValues;
+  const { firstName, lastName, email, phoneNumber, password, password2 } = formValues;
 
   //submit form
   const handleSubmit = async (e) => {
@@ -49,8 +49,8 @@ const Register = () => {
         const response = await axios.post(
           "https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1/users",
           {
-            firstname: firstName,
-            lastname: lastName,
+            firstName: firstName,
+            lastName: lastName,
             email: email,
             mobileNumber: phoneNumber,
             password: password,
@@ -62,7 +62,7 @@ const Register = () => {
         // Save user details to local storage after successful registration
         localStorage.setItem("userDetails", JSON.stringify(response.data.data));
 
-        // console.log("Registration successful:", response.data.data);
+        console.log("Registration successful:", response);
         toast.success(`${response.data.message}`, ToastObjects);
 
         setTimeout(() => {

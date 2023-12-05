@@ -1,120 +1,179 @@
-import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+import Toast from "../components/Toast";
+import validator from "validator";
+import Sidebar from "../components/Sidebar";
 
-import { FaHome } from "react-icons/fa";
-import { CiSettings } from "react-icons/ci";
-import { MdNotificationsActive } from "react-icons/md";
-
-const EditProfile = () => {
-  return (
-    <div className="w-[1728px] h-[1872px] relative bg-neutral-50">
-      <div className="w-[474px] h-[1322px] left-0 top-0 absolute bg-white shadow">
-        <div className="left-[78px] top-[96px] absolute text-zinc-600 text-[56px] font-bold font-['Inter']">
-          LOGO
-        </div>
-
-        <Link to={"/"}>
-          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[450px] absolute bg-emerald-400 rounded-[10px] justify-start items-center gap-5 inline-flex">
-            <span className="w-6 h-6 relative text-white">
-              <FaHome size={25} />
-            </span>
-
-            <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-              Dashboard
-            </span>
-          </button>
-        </Link>
-
-        <Link to={"/settings"}>
-          <button className="w-[442px] h-[52px] p-10 left-[18px] top-[566px] absolute bg-neutral-200 rounded-[10px] justify-start items-center gap-5 inline-flex">
-            <span className="w-6 h-6 relative text-emerald-400">
-              <CiSettings size={25} />
-            </span>
-
-            <span className="text-emerald-400 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-              Settings
-            </span>
-          </button>
-        </Link>
-
-        <button className="w-[442px] h-[52px] p-10 left-[18px] top-[700px] absolute bg-neutral-200 rounded-[10px] justify-center items-center gap-5 inline-flex">
-          <span className="text-emerald-400 text-2xl font-bold font-['Inter'] leading-[13px] tracking-tight">
-            Log out
-          </span>
-        </button>
-        <div className="w-[442px] h-[140px] left-[18px] top-[290px] absolute bg-emerald-400 rounded-[20px] justify-center items-center gap-5 inline-flex">
-          <div className="justify-start items-center gap-5 flex">
-            <img
-              className="w-[100px] h-[100px] rounded-full"
-              src="https://via.placeholder.com/100x100"
-            />
-            <div className="flex-col justify-center items-start gap-5 inline-flex">
-              <div className="text-neutral-100 text-4xl font-medium font-['Inter'] leading-snug tracking-tight">
-                Name Name
-              </div>
-              <div className="text-neutral-100 text-xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-                namenamegmail.com
-              </div>
-            </div>
-          </div>
-          <div />
-          <div className="w-[50px] h-[50px] relative" />
-        </div>
-      </div>
-      <div className="w-[1040px] px-5 py-10 left-[615px] top-[189px] absolute bg-white justify-center items-center gap-2.5 inline-flex">
-        <div className="w-[1044px] text-emerald-400 text-[40px] font-semibold font-['Inter'] leading-snug tracking-tight">
-          Settings
-        </div>
-      </div>
-      <div className="pl-[107px] pr-[163px] py-[84px] left-[607px] top-[463px] absolute bg-white rounded-[7px] shadow justify-start items-center inline-flex">
-        <div className="self-stretch flex-col justify-start items-start gap-[60px] inline-flex">
-          <div className="flex-col justify-start items-start gap-6 flex">
-            <div className="text-zinc-600 text-xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-              Full Name
-            </div>
-            <div className="w-[779px] h-16 px-5 py-2.5 bg-zinc-300 rounded-[7px] shadow justify-start items-center gap-2.5 inline-flex">
-              <div className="text-zinc-600 text-opacity-50 text-base font-medium font-['Inter'] leading-[13px] tracking-tight">
-                Input Full Name
-              </div>
-            </div>
-          </div>
-          <div className="flex-col justify-start items-start gap-6 flex">
-            <div className="text-zinc-600 text-xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-              Email
-            </div>
-            <div className="w-[779px] h-16 px-5 py-2.5 bg-zinc-300 rounded-[7px] shadow justify-start items-center gap-2.5 inline-flex">
-              <div className="text-zinc-600 text-opacity-50 text-base font-medium font-['Inter'] leading-[13px] tracking-tight">
-                Input Email
-              </div>
-            </div>
-          </div>
-          <div className="flex-col justify-start items-start gap-6 flex">
-            <div className="text-zinc-600 text-xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-              Prefered Number
-            </div>
-            <div className="w-[779px] h-16 px-5 py-2.5 bg-zinc-300 rounded-[7px] shadow justify-start items-center gap-2.5 inline-flex">
-              <div className="text-zinc-600 text-opacity-50 text-base font-medium font-['Inter'] leading-[13px] tracking-tight">
-                Input Phone Number
-              </div>
-            </div>
-          </div>
-          <div className="w-[161px] h-16 px-2.5 py-5 bg-emerald-400 rounded-[10px] justify-center items-center gap-2.5 inline-flex">
-            <div className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-              Save
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
-
-      <div className="p-2.5 left-[598px] top-[392px] absolute justify-center items-center gap-2.5 inline-flex">
-        <div className="text-zinc-600 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
-          Edit Profile{" "}
-        </div>
-      </div>
-    </div>
-  );
+const ToastObjects = {
+  pauseOnFocusLoss: false,
+  draggable: false,
+  pauseOnHover: false,
+  autoClose: 5000,
 };
 
-export default EditProfile;
+export default function EditProfile() {
+  const [formValues, setFormValues] = useState({
+    firstname: "",
+    lastname: "",
+    phoneNumber: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const onChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const { lastname, firstname, phoneNumber } = formValues;
+
+  //submit form
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const errors = validate(formValues);
+
+    // setErrors(errors);
+    if (Object.keys(errors).length === 0) {
+      setLoading(true);
+      try {
+        const response = await axios.put(
+          "https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1/users/update",
+          {
+            lastname: lastname,
+            firstname: firstname,
+            mobileNumber: phoneNumber,
+          }
+        );
+        setLoading(false);
+
+        console.log("Registration successful:", response.data);
+        toast.success(`${response.data.message}`, ToastObjects);
+      } catch (error) {
+        setLoading(false);
+        console.log(error);
+        toast.error(`${error.response.data.message}`, ToastObjects);
+        // console.error("Registration error:", error.message);
+      }
+    }
+  };
+
+  //frontend form validation using validator
+  const validate = (formValues) => {
+    const errors = {};
+
+    if (formValues.phoneNumber.length !== 13) {
+      // errors.phoneNumber =
+      //   "Invalid mobile number, mobile number must be 13 digits long";
+      toast.error(
+        "Invalid mobile number, mobile number must be 13 digits long"
+      );
+    }
+
+    return errors;
+  };
+
+  return (
+    <section className="w-screen h-screen flex gap-10 items-center">
+      <div className="max-w-[320px] w-full h-full">
+        <Sidebar />
+      </div>
+
+      <div className="left-[350px] top-[50px] absolute flex-col justify-start items-start gap-[20px] flex">
+        <div className="bg-white justify-center items-center gap-2.5 inline-flex">
+          <div className="w-[1044px] text-emerald-400 text-[30px] font-semibold font-['Inter'] leading-snug tracking-tight">
+            Settings
+          </div>
+        </div>
+
+        <div className="text-zinc-600 text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+          Edit Profile
+        </div>
+
+        <div className="pl-[104px] pr-[109px] py-[84px] bg-white rounded-[7px] shadow justify-start items-center inline-flex">
+          <div className="self-stretch flex-col justify-start items-start gap-5 inline-flex">
+            <form onSubmit={handleSubmit}>
+              <div className="flex-col justify-start items-start gap-6 flex mt-5">
+                <label
+                  className="text-zinc-600 text-base font-medium font-['Inter'] leading-[13px] tracking-tight"
+                  htmlFor="lastname"
+                >
+                  Last name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Input Last Name"
+                  name="lastname"
+                  value={formValues.lastname}
+                  onChange={onChange}
+                  id="lastname"
+                  className="w-[836px] px-3 py-[20px] bg-neutral-50 rounded-[10px] justify-start items-center gap-[30px] inline-flex"
+                />
+              </div>
+
+              <div className="flex-col justify-start items-start gap-6 flex mt-5">
+                <label
+                  className="text-zinc-600 text-base font-medium font-['Inter'] leading-[13px] tracking-tight"
+                  htmlFor="firstname"
+                >
+                  firstname
+                </label>
+                <input
+                  type="text"
+                  placeholder="Input First Name"
+                  name="firstname"
+                  value={formValues.firstname}
+                  onChange={onChange}
+                  id="firstname"
+                  className="w-[836px] px-3 py-[20px] bg-neutral-50 rounded-[10px] justify-start items-center gap-[30px] inline-flex"
+                />
+              </div>
+
+              <div className="flex-col justify-start items-start gap-6 flex mt-5">
+                <label
+                  className="text-zinc-600 text-base font-medium font-['Inter'] leading-[13px] tracking-tight"
+                  htmlFor="phoneNumber"
+                >
+                  Prefered Number
+                </label>
+                <input
+                  type="number"
+                  placeholder="Input phone number"
+                  name="phoneNumber"
+                  value={formValues.phoneNumber}
+                  onChange={onChange}
+                  id="phoneNumber"
+                  className="w-[836px] px-3 py-[20px] bg-neutral-50 rounded-[10px] justify-start items-center gap-[30px] inline-flex"
+                />
+              </div>
+
+              {loading ? (
+                <>
+                  <button
+                    disabled
+                    className="w-[161px] h-16 px-2.5 py-5 bg-emerald-400 rounded-[10px] justify-center items-center gap-2.5 inline-flex mt-4"
+                  >
+                    <span className="text-white text-2xl font-medium font-['Inter'] leading-[13px] tracking-tight">
+                      Loading...
+                    </span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    type="submit"
+                    className="w-[161px] h-16 px-2.5 py-5 bg-emerald-400 rounded-[10px] justify-center items-center gap-2.5 inline-flex mt-5"
+                  >
+                    <span className="text-white text-2xl font-medium font-['Inter']">
+                      Save
+                    </span>
+                  </button>
+                </>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
