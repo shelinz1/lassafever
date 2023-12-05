@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Toast from "../components/Toast";
-import validator from "validator";
 import Sidebar from "../components/Sidebar";
 
 const ToastObjects = {
@@ -15,8 +13,8 @@ const ToastObjects = {
 
 export default function EditProfile() {
   const [formValues, setFormValues] = useState({
-    firstname: "",
     lastname: "",
+    firstname: "",
     phoneNumber: "",
   });
   const [loading, setLoading] = useState(false);
@@ -27,11 +25,21 @@ export default function EditProfile() {
 
   const { lastname, firstname, phoneNumber } = formValues;
 
+  const { user } = JSON.parse(localStorage.getItem("userDetails"));
+  console.log(user);
+
   //submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const errors = validate(formValues);
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${user.access_token}`,
+      },
+    };
 
     // setErrors(errors);
     if (Object.keys(errors).length === 0) {
@@ -40,10 +48,11 @@ export default function EditProfile() {
         const response = await axios.put(
           "https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1/users/update",
           {
-            lastname: lastname,
+            lastName: lastname,
             firstname: firstname,
             mobileNumber: phoneNumber,
-          }
+          },
+          config
         );
         setLoading(false);
 
@@ -75,6 +84,7 @@ export default function EditProfile() {
 
   return (
     <section className="w-screen h-screen flex gap-10 items-center">
+      <Toast />
       <div className="max-w-[320px] w-full h-full">
         <Sidebar />
       </div>

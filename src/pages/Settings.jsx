@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
 const Settings = () => {
-  const user = JSON.parse(localStorage.getItem("userDetails"));
+ const { user } = JSON.parse(localStorage.getItem("userDetails"));
   return (
     <div className="w-screen h-screen relative bg-neutral-50">
       <Sidebar />

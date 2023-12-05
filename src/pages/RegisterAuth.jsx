@@ -34,7 +34,7 @@ export default function Test() {
       // Perform actions after successful login (redirect, etc.)
       toast.success(`${response.data.message}`, ToastObjects);
       setTimeout(() => {
-        navigate("/");
+        navigate("/login");
       }, 2000);
     } catch (error) {
       setLoading(false);

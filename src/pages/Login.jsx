@@ -15,10 +15,7 @@ const ToastObjects = {
 };
 
 const Login = () => {
-  const [formValues, setFormValues] = useState({
-    email: "",
-    password: "",
-  });
+  const [formValues, setFormValues] = useState({ password: "", email: "" });
 
   const [loading, setLoading] = useState(false);
   const [toggle, setToggle] = useState(false);
@@ -41,21 +38,18 @@ const Login = () => {
     if (Object.keys(errors).length === 0) {
       setLoading(true);
       try {
-        const response = await axios.post(
+        const { data } = await axios.post(
           "https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1/auth/login",
-          {
-            email: email,
-            password: password,
-          }
+          { password: password, email: email }
         );
         setLoading(false);
 
         // Save user details to local storage after successful registration
-        localStorage.setItem("userDetails", JSON.stringify(response.data.data));
+        localStorage.setItem("userDetails", JSON.stringify(data.data));
 
-        console.log("Registration successful:", response.data.data);
-        console.log(response);
-        toast.success(`${response.data.message}`, ToastObjects);
+        console.log("Login successful:", data);
+        console.log(data);
+        toast.success(`${data.message}`, ToastObjects);
 
         setTimeout(() => {
           navigate("/");

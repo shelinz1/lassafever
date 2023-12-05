@@ -313,7 +313,7 @@
 // export default Dasboard;
 
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 
@@ -331,7 +331,7 @@ export default function Dashboard() {
     } else {
       navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <section className="w-screen h-screen flex gap-10 items-center">
