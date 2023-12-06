@@ -57,7 +57,7 @@ const Sidebar = () => {
           <div className="justify-start items-center flex">
             <div className="flex-col justify-center items-start gap-2 flex mx-2">
               <div className="text-neutral-100 text-base  font-['Inter'] font-extrabold">
-                {user ? user.firstname : "Name"} {user ? user.lastName : "name"}
+                {user ? user.firstname : "Name"} {user ? user.lastname : "name"}
               </div>
               <div className="text-neutral-100 text-base font-extrabold font-['Inter'] ">
                 {user ? user.email : "johndoe@gmail.com"}{" "}

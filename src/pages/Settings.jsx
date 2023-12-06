@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 
 const Settings = () => {
- const { user } = JSON.parse(localStorage.getItem("userDetails"));
+  const { user } = JSON.parse(localStorage.getItem("userDetails"));
   return (
     <div className="w-screen h-screen relative bg-neutral-50">
       <Sidebar />
@@ -27,7 +27,7 @@ const Settings = () => {
         </div>
         <div className="pl-[104px] pr-[109px] py-[84px] bg-white rounded-[7px] shadow justify-start items-center inline-flex">
           <div className="self-stretch flex-col justify-start items-start gap-5 inline-flex">
-            <div className="flex-col justify-start items-start gap-6 flex">
+            <div className="flex-col justify-start items-start gap-6 flex cursor-not-allowed">
               <div className="text-zinc-600 text-base font-medium font-['Inter'] leading-[13px] tracking-tight">
                 Full Name
               </div>
@@ -37,7 +37,7 @@ const Settings = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-col justify-start items-start gap-6 flex">
+            <div className="flex-col justify-start items-start gap-6 flex cursor-not-allowed">
               <div className="flex-col justify-start items-start gap-6 flex">
                 <div className="text-zinc-600 text-base font-medium font-['Inter'] leading-[13px] tracking-tight">
                   Email
@@ -49,7 +49,7 @@ const Settings = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-col justify-start items-start gap-6 flex">
+            <div className="flex-col justify-start items-start gap-6 flex cursor-not-allowed">
               <div className="text-zinc-600 text-base font-medium font-['Inter'] leading-[13px] tracking-tight">
                 Prefered Number
               </div>

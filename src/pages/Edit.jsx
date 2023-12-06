@@ -26,7 +26,6 @@ export default function EditProfile() {
   const { lastname, firstname, phoneNumber } = formValues;
 
   const { user } = JSON.parse(localStorage.getItem("userDetails"));
-  console.log(user);
 
   //submit form
   const handleSubmit = async (e) => {
@@ -34,34 +33,39 @@ export default function EditProfile() {
 
     const errors = validate(formValues);
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.access_token}`,
-      },
-    };
+    // const config = {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Authorization: `Bearer ${user.access_token}`,
+    //   },
+    // };
 
     // setErrors(errors);
     if (Object.keys(errors).length === 0) {
       setLoading(true);
       try {
-        const response = await axios.put(
+        const { data } = await axios.put(
           "https://lassa-alert-system-29e01ab50dd3.herokuapp.com/api/v1/users/update",
           {
             lastName: lastname,
             firstname: firstname,
             mobileNumber: phoneNumber,
           },
-          config
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${data.access_token}`,
+            },
+          }
         );
         setLoading(false);
 
-        console.log("Registration successful:", response.data);
-        toast.success(`${response.data.message}`, ToastObjects);
+        console.log("Registration successful:", data.data);
+        toast.success(`${data.data.message}`, ToastObjects);
       } catch (error) {
         setLoading(false);
         console.log(error);
-        toast.error(`${error.response.data.message}`, ToastObjects);
+        toast.error(`${error.data.data.message}`, ToastObjects);
         // console.error("Registration error:", error.message);
       }
     }

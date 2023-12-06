@@ -46,6 +46,7 @@ const Login = () => {
 
         // Save user details to local storage after successful registration
         localStorage.setItem("userDetails", JSON.stringify(data.data));
+        localStorage.setItem("accessToken", JSON.stringify(data.access_token));
 
         console.log("Login successful:", data);
         console.log(data);
