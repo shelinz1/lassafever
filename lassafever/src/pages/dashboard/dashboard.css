@@ -1,0 +1,60 @@
+.dashboard {
+  font-size: 40px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.box {
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  padding: 0.5rem;
+}
+
+.outbreak-stat {
+  margin: auto;
+  padding-top: 2rem;
+}
+
+@media screen and (min-width: 768px) and (min-height: 600px) {
+  .dashboard {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-height: 600px) {
+  .gird-container {
+    grid-template-columns: 2fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gird-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .outbreak-stat {
+    width: 300px;
+    height: 300;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .outbreak-stat {
+    width: 300px;
+    height: 300;
+  }
+}

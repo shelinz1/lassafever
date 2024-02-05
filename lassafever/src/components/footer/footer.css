@@ -1,0 +1,49 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.footer-text {
+  font-size: 20px;
+  padding: 1.5rem;
+}
+
+.socials {
+  width: auto;
+  height: 100px;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+  .socials {
+    width: 200px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .socials {
+    width: 100px;
+    height: 100px;
+  }
+} */
